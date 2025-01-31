@@ -24,7 +24,9 @@
         color: hsl(133, 36%, 70%);
       }
     }
-
+    
+    
+    
     body {
       margin: 0;
       padding: 0;
@@ -75,8 +77,42 @@
     .next-button:hover {
       background-color: hsl(227, 84%, 51%);
     }
-  </style>
-</head>
+    
+     .input-container {
+            margin-top: 20px;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid lime;
+            background-color: salmon;
+            color: lime;
+            outline: none;
+           animation: textColorChange .5s infinite;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            border: 1px solid lime;
+            background-color: salmon;
+            color: lime;
+            cursor: pointer;
+           animation: textColorChange .5s infinite;
+        }
+        button:hover {
+            border-color: white;
+            color: white;
+           animation: textColorChange .1s infinite;
+        }
+        .message {
+            margin-top: 10px;
+            font-size: 14px;
+            color: red;
+            font-family: "Times New Roman";
+        }
+    </style>
+  
+  </head>
 <body>
   <div class="text">
     <b>Just like there’s a lot I love about this page’s sponsor:</b><br>
@@ -85,18 +121,32 @@
   <div class="text-2" style="font-size:30px">
 This segment is brought to you by our friends at AsbestosDabestos! Inc.,<br><br> who know that progress isn’t always pretty, but it sure is durable.
 So, what’s the deal with asbestos? Well, imagine a material so versatile it’s been used in everything from fireproofing skyscrapers to making brake pads safer and more efficient. It’s naturally heat-resistant, incredibly strong, and—let’s not forget—affordable! That’s right, folks: asbestos is nature’s little gift to industries that demand toughness and reliability. While other materials might flake under pressure (pun intended), asbestos stays strong, holding the world together, one reinforced cement sheet at a time. <br><br>
-Sure, there have been whispers over the years about asbestos being “problematic,” but isn’t that true of all great innovators? Sometimes, the materials that keep society moving forward get a bad rap for, you know, details. The fact remains: asbestos is unmatched in its ability to deliver results in construction, automotive, and manufacturing. It’s like the workhorse of materials—quietly dependable, endlessly versatile, and completely irreplaceable.
+Sure, there have been whispers over the years about asbestos being “problematic,” but isn’t that true of all great innovators? Sometimes, the materials that keep society moving forward get a bad rap for, you know, details. The fact remains: asbestos is unmatched in its ability to deliver results in construction, automotive, and manufacturing. It’s like the workhorse of materials—quietly dependable, endlessly versatile, and completely irreplaceable. Use code: NOTHINGBURGER for 3% off a 12 year subscription!
     <br><br>
 A huge thank-you to AbestosDabestos for sponsoring this celebration of asbestos and its legacy of industrial greatness. They’re here to remind us that while trends come and go, asbestos has always been the reliable choice for the world’s toughest jobs. So the next time you see a fireproof wall or a sturdy building that’s stood for decades, give a little nod of appreciation to the unsung hero that made it possible.
 Visit your nearest asbestos plant using my link to buy some for the whole family!
  <br style="font-size:10px">
     <a href="https://illinoiscancerspecialists.com/" target="_blank">CLICK HERE!!!</a>
   </div>
-  <button class="next-button" onclick="navigateToNextPage()">Next</button>
+<body>
 
-  <script>
-    function navigateToNextPage() {
-      window.location.href = "https://progamer-chef.github.io/DI-20/"; // Replace with your desired URL
-    }
-  </script>
+    <div class="input-container">
+        <input type="text" id="secretInput" placeholder="USE CODE:">
+        <button onclick="checkSecret()">Submit</button>
+    </div>
+    <p class="message" id="errorMessage"></p>
+
+<script>
+        function checkSecret() {
+            const input = document.getElementById("secretInput").value.trim().toLowerCase();
+            const correctWords = ["NOTHINGBURGER", "IDONTWANNAREADSOIINSPECTELEMENTTOBYPASSTHISLOWSECURITYSHIT", "please:3"]; // Set the correct words here
+
+            if (correctWords.includes(input)) {
+                window.location.href = "https://progamer-chef.github.io/DI-20/"; // Redirect to the desired website
+            } else {
+                document.getElementById("errorMessage").textContent = "wrong.";
+            }
+        }
+    </script>
+  </body>
 </body>
