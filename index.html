@@ -37,7 +37,7 @@
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
-      font-family: "Times New Roman", serif;
+      font-family: "papyrus", serif;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -105,11 +105,23 @@
            animation: textColorChange .1s infinite;
         }
         .message {
-            margin-top: 10px;
-            font-size: 14px;
+            display: block;
+            position: fixed;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 200px;
             color: red;
             font-family: "Times New Roman";
+            opacity: 1; 
+            transition: opacity 1s ease-in-out;
         }
+      
+
+       #errorMessage {
+    opacity: 1;
+    transition: opacity 1s ease-out; 
+}
     </style>
   
   </head>
@@ -126,7 +138,7 @@ Sure, there have been whispers over the years about asbestos being “problemati
 A huge thank-you to AbestosDabestos for sponsoring this celebration of asbestos and its legacy of industrial greatness. They’re here to remind us that while trends come and go, asbestos has always been the reliable choice for the world’s toughest jobs. So the next time you see a fireproof wall or a sturdy building that’s stood for decades, give a little nod of appreciation to the unsung hero that made it possible.
 Visit your nearest asbestos plant using my link to buy some for the whole family!
  <br style="font-size:10px">
-    <a href="https://illinoiscancerspecialists.com/" target="_blank">CLICK HERE!!!</a>
+    <a href="https://ncadiche.github.io/letter-to-internet/" target="_blank">CLICK HERE!!!</a>
   </div>
 <body>
 
@@ -135,18 +147,32 @@ Visit your nearest asbestos plant using my link to buy some for the whole family
         <button onclick="checkSecret()">Submit</button>
     </div>
     <p class="message" id="errorMessage"></p>
+  
+  <audio id="errorSound" src="error.mp3"></audio> 
 
 <script>
-        function checkSecret() {
-            const input = document.getElementById("secretInput").value.trim().toLowerCase();
-            const correctWords = ["NOTHINGBURGER", "IDONTWANNAREADSOIINSPECTELEMENTTOBYPASSTHISLOWSECURITYSHIT", "please:3"]; // Set the correct words here
+       function checkSecret() {
+    const input = document.getElementById("secretInput").value.trim().toLowerCase();
+    const correctWords = ["nothingburger", "idontwannareadsoiinspectelementtobypassthislowsecurityshit", "please:3"];
+    const errorMessage = document.getElementById("errorMessage");
 
-            if (correctWords.includes(input)) {
-                window.location.href = "https://progamer-chef.github.io/DI-20/"; // Redirect to the desired website
-            } else {
-                document.getElementById("errorMessage").textContent = "wrong.";
-            }
-        }
+    if (correctWords.includes(input)) {
+        window.location.href = "https://progamer-chef.github.io/DI-20/";
+    } else {
+        errorMessage.textContent = "wrong.";
+        errorMessage.style.opacity = "1";  errorSound.play();
+
+        setTimeout(() => {
+            errorMessage.style.transition = "opacity 1s ease-out"; // Smooth transition
+            errorMessage.style.opacity = "0"; // Fade out
+        }, 2000); // Start fading after 2 seconds
+
+        setTimeout(() => {
+            errorMessage.textContent = ""; // Clear the text after fade-out completes
+            errorMessage.style.opacity = "1"; // Reset opacity for next time
+        }, 1200);
+    }
+}
     </script>
   </body>
 </body>
